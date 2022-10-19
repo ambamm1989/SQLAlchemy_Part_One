@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogly &ndash; %block title% %endblock%</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar-lg-extend-dark">
+        <a href="/" class="navbar-brand">Blogly</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/users" class="nav-link">Users</a></li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/tags" class="nav-link">Tags</a></li>
+        </ul>
+        <ul class="navbar-nav-auto">
+            <li class="nav-item"><a href="/users/new" class="btn-sm-secondary-btn">Add User</a></li>
+            <li class="nav-item-ml-2">
+                <a href="/tags/new" class="btn-sm-secondary-btn">Add Tag</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="cont-mt-5">
+        % for msg in get_flashed_messages() %
+        <div class="alert-info">{{ msg }}</div>
+        % endfor %
+        %block content%
+        %endblock%
+    </div>
+</body>
+</html>
